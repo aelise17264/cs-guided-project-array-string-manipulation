@@ -22,4 +22,20 @@ There is no index that satisfies the conditions in the problem statement.
 """
 def pivot_index(nums):
     # Your code here
+    S = sum(nums)
+    leftSum = 0
+    for i, x in enumerate(nums):
+        if leftSum == (S - leftSum - x):
+            return i
+        leftSum += x
+    return -1
 
+print(pivot_index([1,2,3]))
+print(pivot_index([1,7,3,6,5,6])) #S = 28
+print(pivot_index([1,4,5,5]))
+print(pivot_index([2,4,6,2,4]))
+    
+
+# Time Complexity: O(N)O(N), where NN is the length of nums.
+
+# Space Complexity: O(1)O(1), the space used by leftsum and S.
